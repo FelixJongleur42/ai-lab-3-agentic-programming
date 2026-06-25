@@ -91,7 +91,7 @@ flowchart LR
 - Team 5-20 mit Qualitätsanspruch: Graph-basiert
 - Plattform/Enterprise: Event + Policy Gates + Observability
 
-## Nächster Schritt
+## Weiter navigieren
 
-- [Swarm-Patterns](swarm-patterns.md)
-- [Failure Modes](failure-modes.md)
+- **Zurück zu den Patterns:** [Swarm-Patterns](swarm-patterns.md)
+- **Weiter zu Risiken und Gegenmaßnahmen:** [Failure Modes](failure-modes.md)

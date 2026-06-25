@@ -59,6 +59,7 @@ Die folgende Tabelle zeigt die Zuordnung von Abonnement-Provider zu bevorzugter 
 | **Cursor** | Cursor IDE (mit Composer) | **Nein (nur für die IDE)** | Cursor bietet keinen API-Endpunkt für externe Apps. Für die RAG-App wird zusätzlich ein Google AI Studio API-Key (kostenlos) oder ein OpenRouter-Key empfohlen. |
 | **GitHub** | VS Code (mit GitHub Copilot Extension) | **Ja (mit Free Tier)** | GitHub Models bietet kostenlosen API-Zugang zu ausgewählten Modellen (z. B. GPT-4o-mini) über GitHub-Token. |
 | **Claude (Anthropic)** | VS Code (mit Cline/Claude Dev) oder Claude Code (CLI) | **Nein (kostenpflichtig)** | Anthropic bietet keinen permanenten Free Tier für die API (Guthaben aufladen erforderlich, min. 5$). Für die RAG-App wird Google AI Studio oder OpenRouter empfohlen. |
+| **OpenAI** | VS Code (mit Codex Extension) | **Nein (kostenpflichtig)** | OpenAI bietet keinen permanenten Free Tier für die API (Guthaben aufladen erforderlich). Für die RAG-App wird Google AI Studio oder OpenRouter empfohlen. |
 
 ---
 

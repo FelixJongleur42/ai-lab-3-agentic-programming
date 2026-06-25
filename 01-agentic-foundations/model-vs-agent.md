@@ -12,8 +12,8 @@
 | **Was ist es?** | Ein neuronales Netz, trainiert auf Text-Vorhersage | Ein System, das Models nutzt, um Aktionen in der echten Welt auszuführen |
 | **Was es tut** | Generiert Text basierend auf Eingabe | Analysiert → Plant → Agiert → Überprüft → Iteriert |
 | **I/O** | Text → Model → neuer Text | Ziel → Agent → Aktionen (Dateien, Shell, APIs) |
-| **Ohne Internet läuft es?** | Ja (lokal) | Nein (braucht Ziele + Tools) |
-| **Training notwendig?** | Ja (pre-training; teuer) | Nein (nutzt ein Model; Prompt-Engineering) |
+| **Ohne Tools läuft es?** | Ja (reine Inference ist möglich) | Nein (braucht Ziel, Kontext und Werkzeuge) |
+| **Training notwendig?** | Ja (Pre-Training; teuer) | Nein (nutzt ein bestehendes Model plus Tools und Kontext) |
 | **Beispiel** | Claude 3.5 Sonnet, GPT-5, Qwen3 | Claude Code, Cursor IDE, Pi Agent |
 
 ---
@@ -40,7 +40,7 @@ flowchart TD
     D --> E[Identifiziert Debug-Pfad]
     E --> F[Schreibt Test]
     F --> G[Implementiert Fix]
-    G --> H[Lädt Tests]
+    G --> H[Führt Tests aus]
     H --> I[Erstellt PR]
     I --> J[Ingenieur reviewt die PR]
 ```
@@ -55,7 +55,7 @@ Ein Agent hat mindestens:
 
 ### 1. Goal / Mission
 ```
-"Löse diese GitHub Issue"
+"Löse dieses GitHub Issue"
 "Refaktoriere dieses Modul für Performance"
 "Schreibe die fehlende Dokumentation"
 ```
@@ -127,14 +127,14 @@ flowchart TD
         B --> G[APIs]
 ```
 
-Ein Agent nutzt ein Model, aber das Model ist nur eine Komponente—nicht das Ganze.
+Ein Agent nutzt ein Model, aber das Model ist nur eine Komponente - nicht das Ganze.
 
 ---
 
 ## Warum das jetzt möglich ist
 
 1. **Tool Use / Function Calling**  
-   Models können jetzt sagen: "Ich brauche X und Y zu Analysieren, bitte ruf diese APIs auf."
+   Models können jetzt sagen: "Ich brauche X und Y zur Analyse, bitte ruf diese APIs auf."
    
 2. **Bessere Reasoning**  
    Claude/GPT-5 können über mehrstufige Probleme nachdenken: Plan → Execute → Debug.
@@ -143,7 +143,7 @@ Ein Agent nutzt ein Model, aber das Model ist nur eine Komponente—nicht das Ga
    Standardisierte Schnittstelle: Agent sagt "Lese Dateien", System liefert Dateien — nicht im Prompt rumgehackt.
 
 4. **Höhere Failure Tolerance**  
-   Agenten können lernen: "Das funktionzte nicht, versuch anders" (Loops).
+   Agenten können lernen: "Das funktionierte nicht, versuch anders" (Loops).
 
 ---
 
@@ -155,7 +155,7 @@ Ein Agent nutzt ein Model, aber das Model ist nur eine Komponente—nicht das Ga
 | "Wie formuliere ich die Anfrage?" | "Wie definiere ich Goal, Perception, Actions?" |
 | "Ein Prompt schreiben" | "Ein Multi-Agent Workflow bauen" |
 | "LLM-APIs" | "Agent Frameworks (LangGraph, CrewAI)" |
-| "Was gibt die API zurück?" | "Wie fehlertoleriert ist meine Pipeline?" |
+| "Was gibt die API zurück?" | "Wie fehlertolerant ist meine Pipeline?" |
 
 ---
 
@@ -167,24 +167,23 @@ Dort wirst du sehen:
 - Agent analysiert ein echtes Issue
 - Agent sagt: "Ich brauch diese Dateien"
 - Agent liest sie, denkt, handelt
-- Agent lädt Tests
+- Agent führt Tests aus
 - Agent öffnet PR
 
 **Das ist kein ChatGPT "write me code"-Moment. Das ist echte Autonomie.**
 
 ---
 
-## Quick Reference Table: Model vs Agent vs Framework
+## Kurzvergleich: Model vs. Agent vs. Framework
 
 | Frage | Model | Agent | Framework |
 |-------|--------|--------|-----------|
 | **Wer führt aus?** | LLM | Agent (nutzt Model) | Orchestrator (nutzt Agents) |
 | **Beispiele** | Claude, GPT-5, Qwen | Claude Code, Pi, Aider | LangGraph, CrewAI |
 | **Kann selbstständig Fehler fixen?** | Nein (braucht dich) | Ja (Retry-Loops) | Ja (explizite Strategien) |
-| **Kostet Geld?** | Per Token | Die Inference + deine Infra | Deine Agents höchstens |
-| **Betreibst du selbst?** | Nur lokal (Ollama) | Naja (Prompts selbst) | Ja (orchestrierst Agents) |
+| **Kostet Geld?** | Pro Token oder lokal | Inference plus Tool-/Infrastrukturkosten | Inference plus Betrieb des Workflows |
+| **Betreibst du selbst?** | Optional lokal (z. B. Ollama) | Teilweise, je nach Tool | Ja, wenn du das Framework selbst deployest |
 
 ---
 
 **Nächster Schritt:** [Agent vs. Framework verstehen](agent-vs-framework.md) (10 min)
-

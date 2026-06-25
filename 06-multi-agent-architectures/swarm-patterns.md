@@ -107,7 +107,7 @@ limits:
 - Kein gemeinsames Artefakt-Format
 - Reviewer ohne echten Stop-Mechanismus
 
-## Nächster Schritt
+## Weiter navigieren
 
-- [Orchestrierungs-Frameworks](orchestration-frameworks.md)
-- [Failure Modes](failure-modes.md)
+- **Weiter zur Umsetzung:** [Orchestrierungs-Frameworks](orchestration-frameworks.md)
+- **Risiken verstehen:** [Failure Modes](failure-modes.md)
