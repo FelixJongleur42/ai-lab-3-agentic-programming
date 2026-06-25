@@ -12,6 +12,10 @@
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
   "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "runArgs": [
+    "--security-opt",
+    "seccomp=unconfined"
+  ],
   "customizations": {
     "vscode": {
       "extensions": [
