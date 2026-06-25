@@ -84,7 +84,7 @@ flowchart TD
 - Replay-fähige Runs für Incident Review
 - Versionierte Prompts/Rules/Skills
 
-## Nächster Schritt
+## Weiter anwenden
 
-- Integriere diese Checks in [05-agentic-workflows/security-guardrails.md](../05-agentic-workflows/security-guardrails.md)
-- Nutze die Muster aus [Swarm-Patterns](swarm-patterns.md)
+- **In Workflows absichern:** [Security Guardrails](../05-agentic-workflows/security-guardrails.md)
+- **Mit Architekturmustern abgleichen:** [Swarm-Patterns](swarm-patterns.md)

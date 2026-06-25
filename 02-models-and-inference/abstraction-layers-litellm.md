@@ -249,7 +249,7 @@ Average: $2–5 / Monat für ein Agent-Team
 
 ---
 
-## Next Steps
+## Nächste Schritte
 
 1. **Sofort probieren:**
    ```bash
@@ -264,4 +264,4 @@ Average: $2–5 / Monat für ein Agent-Team
 
 ---
 
-**Nächster Schritt:** [Coding Agent Landscape — Welche Tool passt zu mir?](../03-coding-agents-landscape/selection-matrix.md)
+**Nächster Schritt:** [Coding Agent Landscape — Welches Tool passt zu mir?](../03-coding-agents-landscape/selection-matrix.md)

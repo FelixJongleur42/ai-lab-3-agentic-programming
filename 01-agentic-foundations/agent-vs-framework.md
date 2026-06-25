@@ -1,16 +1,16 @@
-# Agent vs. Framework — Was ist austauschabar?
+# Agent vs. Framework — Was ist austauschbar?
 
 > ⏱️ 10 Minuten  
-> 🎯 Outcome: Verstehen, was du self-hosting vs. outsourcing kannst
+> 🎯 Outcome: Verstehen, was du selbst betreibst und was du einkaufst
 
 ---
 
-## Zu Beginn: What are we talking about?"
+## Zu Beginn: Worüber sprechen wir?
 
 | Konzept | Definition | Beispiele |
 |---------|-----------|----------|
 | **Coding Agent** | Ein ausführender Agent, der direkt an Code arbeitet (single-session Fokus) | Claude Code, Cursor IDE, Pi Agent, Aider |
-| **Agent Orchestrator / Command Center** | Koordiniert mehrere Agents, Sessions und Kontext über Workflows hinweg | Devin Desktop (ehemals Windsurf), Devin Cloud |
+| **Agent Orchestrator / Command Center** | Koordiniert mehrere Agents, Sessions und Kontext über Workflows hinweg | Devin, agentische IDEs mit Multi-Agent-Steuerung |
 | **Multi-Agent-Framework** | Code-Bibliothek zum Bauen von Orchestrierung (Workflows, State, Tool-Calling) | LangGraph, CrewAI, AutoGen, PydanticAI, Mastra |
 | **Model** | Das LLM selbst | Claude 3.5, GPT-5, Qwen3 Coder |
 
@@ -35,14 +35,14 @@ flowchart TD
 
 ---
 
-## Der Key Decision Tree
+## Der zentrale Entscheidungsbaum
 
 Für dein Projekt: **Welcher Teil gehört dir, welcher nicht?**
 
 ### Option A: Managed Agent (IDE-basiert)
 
 **Dir gehört:** Dein Code + deine Prompts  
-**Dir gehört NICHT:** Der Agent selbst, die Inference
+**Dir gehört nicht:** Der Agent selbst, die Inference
 
 ```mermaid
 flowchart TD
@@ -52,12 +52,12 @@ flowchart TD
 
 **Beispiele:** GitHub Copilot, Cursor IDE, Claude Code (im IDE- oder CLI-Modus)
 
-**Vorteil:**
+**Vorteile:**
 - ✅ Sofort produktiv
 - ✅ Keine Ops/Infrastruktur
 - ✅ Beste UX (IDE integriert)
 
-**Nachteil:**
+**Nachteile:**
 - ❌ Vendor Lock-in (Cursor-Nutzer?)
 - ❌ Keine volle Kontrolle über Agent-Verhalten
 - ❌ Model-Wechsel = IDE-Wechsel
@@ -78,12 +78,12 @@ flowchart TD
 
 **Beispiele:** LangGraph, CrewAI, AutoGen, PydanticAI, Mastra
 
-**Vorteil:**
+**Vorteile:**
 - ✅ Kontrolle über alles
 - ✅ Model-agnostisch (Claude → Qwen via LiteLLM)
 - ✅ Skalierbarkeit in Production
 
-**Nachteil:**
+**Nachteile:**
 - ❌ Mehr Code zu schreiben
 - ❌ Du brauchst Infra-Know-How (Deployment, Monitoring)
 - ❌ Längerer Feedback-Loop beim Entwickeln
@@ -117,20 +117,20 @@ flowchart LR
 - **Orchestrator:** Koordiniert mehrere Agents und Sessions, inklusive Kontext-Sharing.
 - **Framework:** Baustein auf Code-Ebene, um eigene Multi-Agent-Systeme zu entwickeln und zu betreiben.
 
-Für die aktuelle Marktlage heißt das: **Devin Desktop (ehemals Windsurf)** ist nicht nur ein weiterer Coding Agent, sondern zunehmend ein **Orchestrator-Interface** für mehrere lokale und Cloud-Agents.
+Die wichtige Unterscheidung: Ein Orchestrator ist nicht einfach "noch ein Coding Agent", sondern eine Steuerungsschicht für mehrere lokale oder Cloud-basierte Agents.
 
 ---
 
-## Comparison Matrix: Agent-IDE vs. Framework
+## Vergleichsmatrix: Agent-IDE vs. Framework
 
 | Aspekt | GitHub Copilot | Cursor | Claude Code | LangGraph | CrewAI | Pi Agent |
 |--------|---|---|---|---|---|---|
 | **Setup-Zeit** | 5 min (IDE) | 5 min | 5 min | 30 min (Python) | 30 min | 10 min |
-| **Model-Wechsel** |  Nicht möglich | Limited | Nur Anthropic | LiteLLM ✅ | Multiple | LiteLLM ✅ |
-| **Für Production?** | Naja | Naja | Ja (Web UI) | **Ja** | **Ja** | Ja (CLI) |
+| **Model-Wechsel** | Nicht möglich | Eingeschränkt | Nur Anthropic | LiteLLM ✅ | Mehrere Provider | LiteLLM ✅ |
+| **Für Production?** | Eher nein | Eher nein | Möglich | **Ja** | **Ja** | Möglich |
 | **Kontrolle über Agent-Verhalten** | Gering | Mittel | Hoch | **Maximal** | Maximal | Hoch |
 | **Typ** | IDE-Extension | IDE | Web UI + CLI | Python Framework | Python Framework | Python CLI |
-| **Self-Host möglich?** | Nein | Nein | Nein...doch (OSS) | **Ja** | **Ja** | Ja |
+| **Self-Host möglich?** | Nein | Nein | Eingeschränkt | **Ja** | **Ja** | Ja |
 
 ---
 
@@ -165,9 +165,9 @@ flowchart TD
 
 ---
 
-## Die wichtigste Entscheidung: Zur "Control Dimension"
+## Die wichtigste Entscheidung: Kontrolle
 
-Hier ist das Framework, das für dich richtig ist:
+Die passende Lösung hängt davon ab, wie viel Kontrolle dein Team wirklich braucht:
 
 ```mermaid
 flowchart LR
@@ -196,14 +196,14 @@ flowchart TD
 ## Warum das für dich wichtig ist
 
 🎯 **Jetzt:** Framework wählen ist strategisch, nicht technisch.  
-🎯 **Morgen:** Agenten sind über Teams hinweg austauschabar.  
+🎯 **Morgen:** Agenten sind über Teams hinweg austauschbar.  
 🎯 **In 6 Monaten:** Dein Agent-Ökosystem ist eine echte Infrastruktur.
 
 ---
 
 ## Konkrete nächste Schritte
 
-1. **Zeithorizon klar:** Nur für mich (IDE)? Oder Produktions-Workflow?
+1. **Zeithorizont klären:** Nur für mich (IDE)? Oder Produktions-Workflow?
 2. **Kontrolle:** Brauche ich Model-Flexibilität? → dann LiteLLM + Framework
 3. **Komplexität:** Will ich 1 Agent oder 5? → dann eher Framework
 4. **Team-Fähigkeit:** Python? → Framework. Nicht-Devs? → IDE-Agent.
@@ -214,10 +214,10 @@ flowchart TD
 
 Hier nur als Orientierung, ohne Deep Dive: Wenn Teams von Agentic Programming Richtung Agentic Enterprise wachsen, werden typischerweise diese Themen wichtig:
 
-- **DevSecOps:** Security und Betrieb frueh mitdenken.
+- **DevSecOps:** Security und Betrieb früh mitdenken.
 - **MLOps:** Modelle, Versionen, Evaluation und Rollout systematisch betreiben.
 - **LLMOps:** Prompts, Kontext, Evaluation und Betrieb von LLM-basierten Systemen gezielt steuern.
-- **Guardrails:** klare Grenzen fuer Tool-Nutzung, Datenzugriff und Freigaben.
+- **Guardrails:** klare Grenzen für Tool-Nutzung, Datenzugriff und Freigaben.
 - **Governance:** Nachvollziehbarkeit, Rollen, Verantwortlichkeiten.
 - **Skalierung:** von Einzel-Agenten zu stabilen Team-Workflows.
 
@@ -228,11 +228,11 @@ flowchart LR
   C --> D[Agentic Enterprise\nGoverned, Scalable, Compliant]
 ```
 
-Fuer einen spaeteren Deep Dive in Guardrails ist diese Referenz hilfreich:
+Für einen späteren Deep Dive in Guardrails ist diese Referenz hilfreich:
 
 - [NVIDIA NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails)
 
-Fuer die Abgrenzung von MLOps und LLMOps ist diese Referenz hilfreich:
+Für die Abgrenzung von MLOps und LLMOps ist diese Referenz hilfreich:
 
 - [ZenML: MLOps vs LLMOps](https://www.zenml.io/blog/mlops-vs-llmops)
 
@@ -243,4 +243,8 @@ Im Curriculum passt dieser Ausblick besonders zu:
 
 ---
 
-**Naechstes Modul:** [Model vs. Agent](model-vs-agent.md) (15 min)
+## Weiter navigieren
+
+- **Zurück zur Grundlage:** [Model vs. Agent](model-vs-agent.md) (15 min)
+- **Weiter im Workshop-Standardpfad:** [Selection Matrix](../03-coding-agents-landscape/selection-matrix.md) (10 min)
+- **Weiter im Architekturpfad:** [Inference Layer mit LiteLLM](../02-models-and-inference/abstraction-layers-litellm.md) (30 min)

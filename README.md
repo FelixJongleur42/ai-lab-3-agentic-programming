@@ -13,15 +13,23 @@ Dieses Repository transformiert Sie von Theorieverstehen zu aktiver, produktiver
 
 ## 🎯 30-Sekunden-Essenz
 
-| Punkt | Gestern (Pre-2024) | Heute (2026+) |
-|-------|----------|-----------|
-| **Fokus** | Mensch schreibt Code | Agent schreibt Code |
-| **Ablauf** | Manuelles Coding | Ziel → Agent → PR |
-| **Tool** | LLM-Chat | Coding Agent (IDE oder CLI) |
-| **Infra** | API Keys | LiteLLM + MCP |
-| **Skalierung** | 1 Agent | Multi-Agent-Systeme |
+| Punkt | Gestern (Pre-2024) | Heute (2026+) | Zukunft |
+|-------|----------|-----------|---------|
+| **Fokus** | Mensch schreibt Code | Agent schreibt Code | AI-first Teams arbeiten mit virtuellen Mitarbeiter:innen |
+| **Ablauf** | Manuelles Coding | Ziel → Agent → PR | Kontinuierliche Workflows von Idee bis Betrieb |
+| **Tool** | LLM-Chat | Coding Agent (IDE oder CLI) | Persönliche Assistenten mit Kontext, Tools und Gedächtnis |
+| **Integration** | API Keys und einzelne Tools | LiteLLM + MCP als Abstraktions- und Tooling-Schicht | Agenten handeln sicher über Unternehmenssysteme hinweg |
+| **Skalierung** | 1 Agent | Multi-Agent-Systeme | Orchestrierte Agent-Organisationen mit Rollen, Reviews und Governance |
 
 **Die Revolution:** 🔑 **Agenten führen Aktionen aus**, statt nur Text zu generieren.
+
+> **Fiktives Leitmotiv:** "Wenn ich Software agentisch genau für meinen Zweck entwickeln, anpassen und betreiben lassen kann: Warum sollte ich jede Standardlösung noch kaufen oder mieten?"
+
+Agentic Programming verschiebt damit die klassische Make-or-Buy-Frage: Nicht jede Organisation muss zur Softwarefirma werden, aber viel mehr Teams können passgenaue Software dort entstehen lassen, wo der Bedarf tatsächlich sitzt.
+
+> **Provokative These für Software-Dienstleister:** "Softwareentwicklung wird nicht mehr primär als menschliche Expert:innenzeit nach Aufwand verkauft. Entscheidend ist, welchen messbaren Wert Software und agentische Software-Services erzeugen."
+
+Damit verschiebt sich auch das Geschäftsmodell: Wer Software baut, verkauft weniger Umsetzungskapazität und stärker Ergebnisse, Automatisierung, Betrieb, Anpassungsfähigkeit und Verantwortung für Wirkung.
 
 ---
 
@@ -30,7 +38,7 @@ Dieses Repository transformiert Sie von Theorieverstehen zu aktiver, produktiver
 <details open>
 <summary><strong>⏱️ Ich habe 5 Minuten</strong></summary>
 
-→ Lies die nächsten zwei Absätze. Das ist dein "Aha-Moment".
+→ Lies die 30-Sekunden-Essenz oben: Tabelle plus Revolution-Satz sind der Aha-Moment.
 
 </details>
 

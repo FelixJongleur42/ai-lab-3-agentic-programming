@@ -381,8 +381,8 @@ flowchart TD
   MA[Multi-Agent] --> O[LangGraph für Orchestration]
 ```
 
-MCP is the middle layer. Ohne MCP müssen Agents zu hacky mit Tool-Integration umgehen.
+MCP ist die mittlere Schicht. Ohne MCP wird Tool-Integration schnell improvisiert, fragil und schwer zu kontrollieren.
 
 ---
 
-[← Zurück zu Module 3](../03-coding-agents-landscape/) | [Weiter zu Checkpoint 2 →](../07-hands-on-labs/checkpoint-02.md)
+[← Zurück zur Tool-Auswahl](../03-coding-agents-landscape/selection-matrix.md) | [Weiter zu Checkpoint 2 →](../07-hands-on-labs/checkpoint-02.md)
