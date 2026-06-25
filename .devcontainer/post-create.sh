@@ -9,71 +9,66 @@ if [[ -z "$PYTHON_BIN" ]]; then
 fi
 
 log() {
-  echo "[devcontainer] $1"
+  echo "[devcontainer] $(date '+%H:%M:%S') $1"
 }
 
 install_python_pkg() {
   local pkg="$1"
-  if "$PYTHON_BIN" -m pip install "$pkg"; then
-    log "Python-Paket installiert: $pkg"
+  log "pip install $pkg ..."
+  if "$PYTHON_BIN" -m pip install --quiet "$pkg"; then
+    log "OK: $pkg"
   else
-    log "WARN: Python-Paket konnte nicht installiert werden: $pkg"
+    log "WARN: $pkg konnte nicht installiert werden"
   fi
 }
 
-install_npm_first_available() {
-  local label="$1"
-  shift
-
-  local pkg
-  for pkg in "$@"; do
-    if npm install -g "$pkg"; then
-      log "$label installiert via $pkg"
-      return 0
-    fi
-  done
-
-  log "WARN: $label konnte mit keinem bekannten Paketnamen installiert werden."
-  return 1
+install_npm_pkg() {
+  local pkg="$1"
+  log "npm install -g $pkg ..."
+  if npm install -g "$pkg" --silent; then
+    log "OK: $pkg"
+  else
+    log "WARN: $pkg konnte nicht installiert werden"
+  fi
 }
 
-log "Pip aktualisieren"
-"$PYTHON_BIN" -m pip install --upgrade pip setuptools wheel
+# ---------------------------------------------------------------------------
+log "=== Devcontainer Setup gestartet ==="
 
-log "Kostenlose CLI-Agent-Tools installieren"
+# ---------------------------------------------------------------------------
+log "--- pip / setuptools aktualisieren ---"
+"$PYTHON_BIN" -m pip install --quiet --upgrade pip setuptools wheel
+
+# ---------------------------------------------------------------------------
+log "--- Python-Pakete installieren ---"
 install_python_pkg aider-chat
 install_python_pkg litellm
 install_python_pkg openai
 install_python_pkg google-genai
-install_python_pkg pi-agent
-install_python_pkg ollama
 
-log "Freie CLI-Alternativen (npm) installieren"
-install_npm_first_available "OpenCode CLI" "@opencode-ai/cli" "opencode-ai" "opencode"
+# ---------------------------------------------------------------------------
+log "--- npm-Pakete installieren ---"
+install_npm_pkg @openai/codex
 
-log "Docker Tooling pruefen"
+# ---------------------------------------------------------------------------
+log "--- Docker-Verfügbarkeit prüfen ---"
 if command -v docker >/dev/null 2>&1; then
   docker --version || true
   if docker info >/dev/null 2>&1; then
     log "Docker Daemon erreichbar (DooD aktiv)"
   else
-    log "WARN: Docker CLI verfuegbar, aber kein Daemon erreichbar (Socket/Mount pruefen)"
+    log "WARN: Docker CLI verfügbar, aber kein Daemon erreichbar"
   fi
 else
   log "WARN: Docker CLI nicht gefunden"
 fi
 
-log "Tool-Versionen anzeigen"
+# ---------------------------------------------------------------------------
+log "--- Tool-Versionen ---"
 "$PYTHON_BIN" --version || true
-node --version || true
-npm --version || true
-aider --version || true
-if command -v pi >/dev/null 2>&1; then
-  log "Pi Agent verfuegbar"
-elif command -v pi-agent >/dev/null 2>&1; then
-  log "pi-agent verfuegbar"
-else
-  log "Pi Agent nicht im PATH"
-fi
+node --version           || true
+npm --version            || true
+aider --version          || true
+codex --version          || true
 
-log "Fertig"
+log "=== Devcontainer Setup abgeschlossen ==="
